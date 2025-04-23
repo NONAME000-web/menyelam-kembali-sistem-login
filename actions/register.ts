@@ -1,5 +1,6 @@
 "use server"
 
+export const runtime = "nodejs"
 import * as z from "zod"
 import { Database } from "@/lib/db"
 import bcrypt from "bcryptjs"
