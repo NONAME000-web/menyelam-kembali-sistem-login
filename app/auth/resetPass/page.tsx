@@ -2,7 +2,7 @@
 
 import * as z from "zod"
 import { NewPasswordSchema } from "@/Schemas"
-import React, { useState, useTransition } from 'react'
+import React, { Suspense, useState, useTransition } from 'react'
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { CardWrapper } from "@/components/auth/CardWrapper"
@@ -42,6 +42,7 @@ const Page = () => {
     }
   return (
     <CardWrapper backButtonHref="/auth/login" backButtonLabel="Back To Login" headerLabel="Change Your New Password">
+      <Suspense fallback={<div className="w-full h-4 bg-slate-200 animate-pulse rounded-md"/>}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(submit)} className="space-y-6">
           <div className="space-y-4">
@@ -69,6 +70,7 @@ const Page = () => {
           <Button className="w-full" type="submit" variant={"outline"}>Submit</Button>
         </form>
       </Form>
+      </Suspense> 
     </CardWrapper>
   )
 }
