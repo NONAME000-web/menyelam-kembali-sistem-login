@@ -12,7 +12,7 @@ import { ErrorForm } from "@/components/FormError"
 import { Button } from "@/components/ui/button"
 import { SuccessForm } from "@/components/FormSuccess"
 
-const page = () => {
+const Page = () => {
     const [success, setSuccess] = useState<string | undefined>(undefined)
     const [error, setError] = useState<string | undefined>(undefined)
     const [isPending, startTransition] = useTransition()
@@ -60,4 +60,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

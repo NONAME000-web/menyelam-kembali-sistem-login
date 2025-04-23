@@ -14,7 +14,7 @@ import { ErrorForm } from "@/components/FormError"
 import { SuccessForm } from "@/components/FormSuccess"
 import { Button } from "@/components/ui/button"
 
-const page = () => {
+const Page = () => {
     const searchParams = useSearchParams()
     const token = searchParams.get("token")
     const [success, setSuccess] = useState<string | undefined>("")
@@ -73,4 +73,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
