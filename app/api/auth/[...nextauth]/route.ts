@@ -1,2 +1,5 @@
-export const runtime = "nodejs"
+export const config = {
+    runtime: "nodejs"
+  }
+  
 export {GET, POST} from "@/auth"
