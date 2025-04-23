@@ -1,9 +1,7 @@
 "use server"
 
-export const runtime = "nodejs"
 import * as z from "zod"
 import { Database } from "@/lib/db"
-import bcrypt from "bcryptjs"
 import { RegisterSchema } from "@/Schemas"
 import { getUserByEmail } from "@/data/user"
 
@@ -13,6 +11,8 @@ export const register = async(values: z.infer<typeof RegisterSchema>) => {
     if(!validateFields.success) return {error: "Invalid Fields"}
 
     const {email, password, name} = validateFields.data
+    //
+    const bcrypt = await import("bcryptjs")
     const hashedPass = await bcrypt.hash(password, 10)
 
     const userExist = await getUserByEmail(email)
