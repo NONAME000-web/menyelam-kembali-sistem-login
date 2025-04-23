@@ -1,11 +1,6 @@
 {
-    "buildCommand": "prisma generate && next build",
-    "ignoreCommand": "echo 'No need to ignore anything'",
-    "functions": {
-      "api/**/*.ts": {
-        "memory": 1024,
-        "maxDuration": 10
-      }
-    }
+    "buildCommand": "npx prisma generate && next build",
+    "outputDirectory": ".next",
+    "cleanUrls": true
   }
   
