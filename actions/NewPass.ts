@@ -5,6 +5,7 @@ import { getTokenResetPassbyToken } from "@/data/resetPass"
 import { NewPasswordSchema } from "@/Schemas"
 import { Database } from "@/lib/db"
 import { getUserByEmail } from "@/data/user"
+import bcrypt from "bcryptjs"
 
 export const newPass = async(values: z.infer<typeof NewPasswordSchema>, token: string | null) => {
     const validateFields = NewPasswordSchema.safeParse(values)
@@ -22,7 +23,6 @@ export const newPass = async(values: z.infer<typeof NewPasswordSchema>, token: s
     if(!userExist) return{error: "User Does Not Exist"}
 
     //
-    const bcrypt = await import("bcryptjs")
     const hashedPass = await bcrypt.hash(password, 10)
 
     await Database.user.update({
